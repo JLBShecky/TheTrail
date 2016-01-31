@@ -1,0 +1,27 @@
+
+/* Map size info
+ *
+ * Height: 300 chunks ( 6000 tiles)
+ * Width:  500 chunks (10000 tiles)
+ * 20 Bytes storage per tile
+ * 1 GiB per Map tile info
+ *
+ * 2 Bytes - Terrain
+ * 2 Byte  - Height
+ * 2 Bytes - Foilage
+ * 2 Byte  - Roads
+ *           6 Bits - Connections
+ *           4 Bits - Level (0 - 16)
+ *           6 Bits - Reserved
+ * 4 Bytes - Rivers
+ *           6 Bits - Connections
+ *           6 Bits - Flow
+ *           6 Bits - Depth (0 - 63)
+ *           10 Bits - Water Ammount
+ *           4 Bits - Reserved
+ * 4 Bytes - Owner ID
+ * 2 Bytes - Soil Quality 
+ *           1 Byte - Active Quality
+ *           1 Byte - Base Quality
+ * 2 Byte  - Unused
+ */
