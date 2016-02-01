@@ -52,29 +52,29 @@ function WarMap(obj, hSize, cX, cY) {
       for (var row = -tmpMin; row < tmpMax; row++) {
         var val = 1;
 
-        if(row == -tmpMin && col == 0) {
+        if(row == -tmpMin && col == 0) {//top center corner
           val = 2;
-        } else if(row == -tmpMin && col == 12){
+        } else if(row == -tmpMin && col == 12){//right upper corner
           val = 3;
-        } else if(row == tmpMin && col == 12){
+        } else if(row == tmpMin && col == 12){//right lower corner
           val = 4;
-        } else if(row == tmpMin && col == 0) {
+        } else if(row == tmpMin && col == 0) {//bottom center corner
           val = 5;
-        } else if(row == tmpMin && col == -12){
+        } else if(row == tmpMin && col == -12){//left lower corner
           val = 6;
-        } else if(row == -tmpMin && col == -12){
+        } else if(row == -tmpMin && col == -12){//left upper corner
           val = 7;
-        } else if(row == -tmpMin && col > 0) {
+        } else if(row == -tmpMin && col > 0) {//right top wall
           val = 8;
-        } else if(col == 12){
+        } else if(col == 12){//right wall
           val = 9;
-        } else if(row == tmpMin && col > 0) {
+        } else if(row == tmpMin && col > 0) {//right bottom wall
           val = 10;
-        } else if(row == tmpMin && col < 0) {
+        } else if(row == tmpMin && col < 0) {//left bottom wall
           val = 11;
-        } else if(col == -12){
+        } else if(col == -12){//left wall
           val = 12;
-        } else if(row == -tmpMin && col < 0) {
+        } else if(row == -tmpMin && col < 0) {//right top wall
           val = 13;
         }
                
@@ -101,26 +101,26 @@ function WarMap(obj, hSize, cX, cY) {
     tmp[9 + 25 + ((25 + 6) * 51)] = 21;  // Bottom-Right 21/22
     tmp[9 + 25 + ((25 - 6) * 51)] = 23;  // Bottom-Left 23/24
     tmp[0 - 26 + ((25 - 11) * 51)] = 25; // Left 25/26
-    tmp[-9 + 25 + ((25 - 6) * 51)] = 28; // Top-Left 27/28
+    tmp[-9 + 25 + ((25 - 6) * 51)] = 27; // Top-Left 27/28
 
     // The external trading station
-    tmp[-10 + 25 + ((25 + 3) * 51)] = 29; // Sell Top-Right 29
-    tmp[-7 + 25 + ((25 + 8) * 51)] = 30; // Buy Top-Right 30
+    tmp[-10 + 25 + ((25 + 3) * 51)] = 28; // Sell Top-Right 28
+    tmp[-7 + 25 + ((25 + 8) * 51)] = 29; // Buy Top-Right 29
 
-    tmp[-3 + 25 + ((25 + 11) * 51)] = 31; // Sell Right 31
-    tmp[2 + 25 + ((25 + 11) * 51)] = 32; // Buy Right 32
+    tmp[-3 + 25 + ((25 + 11) * 51)] = 30; // Sell Right 30
+    tmp[2 + 25 + ((25 + 11) * 51)] = 31; // Buy Right 31
     
-    tmp[7 + 25 + ((25 + 8) * 51)] = 33; // Sell Bottom-Right 33
-    tmp[9 + 25 + ((25 + 3) * 51)] = 34; // Buy Bottom-Right 34
+    tmp[7 + 25 + ((25 + 8) * 51)] = 32; // Sell Bottom-Right 32
+    tmp[9 + 25 + ((25 + 3) * 51)] = 33; // Buy Bottom-Right 33
     
-    tmp[9 + 25 + ((25 - 3) * 51)] = 35; // Sell Bottom-Left 35
-    tmp[7 + 25 + ((25 - 8) * 51)] = 36; // Buy Bottom-Left 36
+    tmp[9 + 25 + ((25 - 3) * 51)] = 34; // Sell Bottom-Left 34
+    tmp[7 + 25 + ((25 - 8) * 51)] = 35; // Buy Bottom-Left 35
     
-    tmp[2 + 25 + ((25 - 11) * 51)] = 37; // Sell Left 37
-    tmp[-3 + 25 + ((25 - 11) * 51)] = 38; // Buy Left 38
+    tmp[2 + 25 + ((25 - 11) * 51)] = 36; // Sell Left 36
+    tmp[-3 + 25 + ((25 - 11) * 51)] = 37; // Buy Left 37
     
-    tmp[-7 + 25 + ((25 - 8) * 51)] = 39; // Sell Top-Right 39
-    tmp[-10 + 25 + ((25 - 3) * 51)] = 40; // Buy Top-Right 40
+    tmp[-7 + 25 + ((25 - 8) * 51)] = 38; // Sell Top-Right 38
+    tmp[-10 + 25 + ((25 - 3) * 51)] = 39; // Buy Top-Right 39
 
     // The internal trading posts
     tmp[-11 + 25 + ((25 + 4) * 51)] = 41; // Sell Top-Right 41
@@ -151,7 +151,8 @@ function WarMap(obj, hSize, cX, cY) {
   loadMapTile("OuterStoneWallStraight.png", 14);
   loadMapTile("OuterStoneWall-60.png", 15);
   loadMapTile("OuterStoneWall+60.png", 16);
-
+  loadMapTile("Cobble.png", 1);
+  loadMapTile("CastleWall.png", 12);
   
   var editor = new Editor(mapData);
 
@@ -280,7 +281,7 @@ function WarMap(obj, hSize, cX, cY) {
       // Update the Hex
       hex.setSize(newSize);
 
-      // TODO: Calculate the new offset
+      // Calculate the new offset
       offX = centerX - Math.round((centerX - offX) * ratio);
       offY = centerY - Math.round((centerY - offY) * ratio);
     },
