@@ -109,13 +109,40 @@ function Map(ctrl) {
 
   var hexCoord = { 'x': 0, 'y': 0 };
 
+  var fpsTotal = 0;
+  var fpsCnt = 0;
+  var fpsRec = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+  ]
+
   // Render
   function Render() {
     ctx.clearRect(0, 0, cv.width, cv.height);
     ctx.save();
 
+    var start = new Date().getTime();
+
     // Start the rendering
     curMap.render(hexCoord.x, hexCoord.y);
+
+    var end = new Date().getTime();
+    var runTime = end - start;
+
+    // Remove old time
+    fpsTotal -= fpsRec[fpsCnt];
+    fpsTotal += runTime;
+    fpsRec[fpsCnt] = runTime;
+    fpsCnt = (fpsCnt + 1) % 100;
+
     
     // Debugging info
     ctx.fillStyle = "#000000";
@@ -132,6 +159,10 @@ function Map(ctrl) {
 
     ctx.fillText("Hex oX: " + (hexCoord.oX | ""), 10, 120);
     ctx.fillText("Hex oY: " + (hexCoord.oY | ""), 10, 130);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText("Frame time: " + (fpsTotal/100) + "ms", 10, 150);
+    ctx.fillText("FPS: " + Math.floor(1000 / (fpsTotal / 100)), 10, 160);
 
     // We are done rendering
     ctx.restore();

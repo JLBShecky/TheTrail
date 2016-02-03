@@ -230,10 +230,10 @@ function WarMap(obj, hSize, cX, cY) {
           ctx.fillStyle = colors[tileId];
           ctx.fill();
         } else {
-          ctx.save();
-          ctx.clip();
+          //ctx.save();
+          //ctx.clip();
           ctx.drawImage(colors[tileId], offX + (x * hex.halfLong) - hex.size, offY + (y * hex.short) + (x % 2 ? hex.halfShort : 0) - hex.halfShort, hex.size * 2, hex.short);
-          ctx.restore();
+          //ctx.restore();
         }
         
         ctx.stroke();
