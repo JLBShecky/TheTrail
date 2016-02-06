@@ -123,23 +123,23 @@ function WarMap(obj, hSize, cX, cY) {
     tmp[-10 + 25 + ((25 - 3) * 51)] = 39; // Buy Top-Right 39
 
     // The internal trading posts
-    tmp[-11 + 25 + ((25 + 4) * 51)] = 41; // Sell Top-Right 41
-    tmp[-9 + 25 + ((25 + 9) * 51)] = 42; // Buy Top-Right 42
+    tmp[-11 + 25 + ((25 + 4) * 51)] = 40; // Sell Top-Right 40
+    tmp[-9 + 25 + ((25 + 9) * 51)] = 41; // Buy Top-Right 41
 
-    tmp[-3 + 25 + ((25 + 13) * 51)] = 43; // Sell Right 43
-    tmp[2 + 25 + ((25 + 13) * 51)] = 44; // Buy Right 44
+    tmp[-3 + 25 + ((25 + 13) * 51)] = 42; // Sell Right 42
+    tmp[2 + 25 + ((25 + 13) * 51)] = 43; // Buy Right 43
     
-    tmp[8 + 25 + ((25 + 9) * 51)] = 45; // Sell Bottom-Right 45
-    tmp[11 + 25 + ((25 + 4) * 51)] = 46; // Buy Bottom-Right 46
+    tmp[8 + 25 + ((25 + 9) * 51)] = 44; // Sell Bottom-Right 44
+    tmp[11 + 25 + ((25 + 4) * 51)] = 45; // Buy Bottom-Right 45
     
-    tmp[11 + 25 + ((25 - 4) * 51)] = 47; // Sell Bottom-Left 47
-    tmp[8 + 25 + ((25 - 9) * 51)] = 48; // Buy Bottom-Left 48
+    tmp[11 + 25 + ((25 - 4) * 51)] = 46; // Sell Bottom-Left 46
+    tmp[8 + 25 + ((25 - 9) * 51)] = 47; // Buy Bottom-Left 47
     
-    tmp[2 + 25 + ((25 - 13) * 51)] = 49; // Sell Left 49
-    tmp[-3 + 25 + ((25 - 13) * 51)] = 50; // Buy Left 50
+    tmp[2 + 25 + ((25 - 13) * 51)] = 48; // Sell Left 48
+    tmp[-3 + 25 + ((25 - 13) * 51)] = 49; // Buy Left 49
     
-    tmp[-9 + 25 + ((25 - 9) * 51)] = 51; // Sell Top-Right 51
-    tmp[-11 + 25 + ((25 - 4) * 51)] = 52; // Buy Top-Right 52
+    tmp[-9 + 25 + ((25 - 9) * 51)] = 50; // Sell Top-Right 50
+    tmp[-11 + 25 + ((25 - 4) * 51)] = 51; // Buy Top-Right 51
 
     // Save the map data
     //localStorage.setItem('mapData', JSON.stringify(tmp));
@@ -153,6 +153,12 @@ function WarMap(obj, hSize, cX, cY) {
   loadMapTile("OuterStoneWall+60.png", 16);
   loadMapTile("Cobble.png", 1);
   loadMapTile("CastleWall.png", 12);
+  loadMapTile("CornerStone.png", 5);
+  loadMapTile("LeftBottomCorner.png", 6);
+  loadMapTile("RightCastleWall.png", 9);
+  loadMapTile("RightBottomWall.png", 10);
+  loadMapTile("LeftTopWall.png", 13);
+  loadMapTile("LeftBottomWall.png", 11);
   
   var editor = new Editor(mapData);
 
@@ -186,7 +192,7 @@ function WarMap(obj, hSize, cX, cY) {
     "#cacaca",
     "#d0d0d0",
     "#dadada",
-    "#e0e0e0",
+    "#00bb88",
     "#0088bb",
     "#00bb88",
     "#0088bb",
